@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Spesial Hari Ini</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+	background:url('https://i.ibb.co.com/pVW2bsw/image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* FLOATING ICON */
+.floating span {
+    position:absolute;
+    top:-10%;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+@keyframes fall {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(120vh);}
+}
+
+/* CONTAINER */
+ .container {
+    max-width:400px;
+    margin:260px;
+    padding:60px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+}
+
+/* TITLE */
+.title {
+    font-size:24px;
+    font-weight:bold;
+    margin-top:10px;
+    background: linear-gradient(90deg,#facc15,#f97316);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* TIMER */
+.timer {
+    font-size:22px;
+    margin:15px 0;
+    padding:10px;
+    border-radius:10px;
+    background: rgba(255,255,255,0.1);
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% {box-shadow:0 0 5px #facc15;}
+    50% {box-shadow:0 0 20px #f97316;}
+    100% {box-shadow:0 0 5px #facc15;}
+}
+
+/* IMAGE */
+.hero img {
+    width:100%;
+    border-radius:12px;
+    margin:15px 0;
+}
+
+/* BUTTON */
+.btn {
+    display:block;
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background: linear-gradient(90deg,#facc15,#f97316);
+    color:black;
+    transition:0.3s;
+}
+
+.btn:hover {
+    transform:scale(1.05);
+}
+
+/* BADGE */
+.badge {
+    background:red;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    display:inline-block;
+    margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- FLOATING ANIMATION -->
+<div class="floating">
+    <span style="left:10%;animation-duration:15s;">🔥</span>
+    <span style="left:30%;animation-duration:18s;">🔥</span>
+    <span style="left:50%;animation-duration:20s;">🔥</span>
+    <span style="left:70%;animation-duration:17s;">🔥</span>
+    <span style="left:90%;animation-duration:22s;">🔥</span>
+</div>
+
+<div class="container">
+
+    <div class="badge">EVENT TERBATAS</div>
+
+    <div class="title">
+        BAGI BAGI SALDO HINGGA 2 JT 🚀
+    </div>
+
+    <div class="timer" id="countdown">
+        Loading...
+    </div>
+
+    <div class="hero">
+        <img src="https://i.ibb.co.com/5XLdpqbq/661724106-122123928537193193-125506911605243606-n.jpg" alt="promo">
+    </div>
+
+    <button class="btn" onclick="goLink()">
+        🔥 DAFTAR SEKARANG
+    </button>
+
+    <button class="btn" onclick="alert('Kasih ID Di Chat')">
+        🎁 AMBIL BONUS
+	</button>
+</div>
+}
+
+// COUNTDOWN (1 JAM)
+var time = 3600;
+
+function updateTimer(){
+    var hours = Math.floor(time / 3600);
+    var minutes = Math.floor((time % 3600) / 60);
+    var seconds = time % 60;
+
+    document.getElementById("countdown").innerHTML =
+        hours + " : " + minutes + " : " + seconds;
+
+    if(time > 0){
+        time--;
+    } else {
+        document.getElementById("countdown").innerHTML = "WAKTU HABIS!";
+    }
+}
+
+setInterval(updateTimer,1000);
+</script>
+
+</body>
+</html>
